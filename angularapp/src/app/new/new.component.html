@@ -1,0 +1,36 @@
+<div class="wrapperNew">
+  <br>
+  <h3>Register a Restaurant</h3>
+  <form (submit)="onSubmit()" class="postForm">
+    <!-- <p>{{ newFood | json}}</p> -->
+    <label>Restaurant Name:
+      <input type="text" name="newFood.name" [(ngModel)]="newFood.name" required minlength="3" #name="ngModel" />
+    </label>
+    <br>
+      <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+        <div [hidden]="!name.errors.required">
+          Food Name is required.
+        </div>
+        <div [hidden]="!name.errors.minlength">
+          Food Name must be at least 3 characters.
+        </div> -->
+      </div>
+    <label>Food Type:
+      <input type="text" name="newFood.type" [(ngModel)]="newFood.type" required minlength="3" #type="ngModel" />
+    </label>
+    <br>
+      <div *ngIf="type.errors && (type.dirty || type.touched)" class="alert alert-danger">
+        <div [hidden]="!type.errors.required">
+          Cuisine Type is required.
+        </div>
+        <div [hidden]="!type.errors.minlength">
+          Cuisine Type must be at least 3 characters.
+        </div>
+      </div>
+    <br>
+    <br>
+    <input type="submit" value=Register class="button1" />
+    <input type="button" class="button1" [routerLink]="['/home']" value="Cancel">
+  </form>
+  <br>
+</div>

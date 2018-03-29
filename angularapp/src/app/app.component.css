@@ -1,0 +1,28 @@
+a {
+    color: black;
+}
+.button1 {
+    font-size: 10px;
+    padding: 10px 24px; 
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;   
+    margin-left: 10px;
+}
+.wrapperNew {
+    text-align:center;
+    border-top: #b44e4e solid 4px;
+    border-left: #b44e4e solid 4px;
+    border-right: #b44e4e solid 4px;
+    border-bottom: black solid 4px;
+    background: white;
+}
+.postForm {
+    border: solid 4px #b44e4e; 
+    background: white;
+    text-align: center;
+    width: 485px;
+    height: 110px;
+    padding-top: 25px;
+    margin-left: 145px;
+}

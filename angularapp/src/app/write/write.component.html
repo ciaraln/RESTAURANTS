@@ -1,0 +1,43 @@
+<div class="wrapperNew">
+  <br>
+  <h3>Write a review for {{ oneRestaurant.name }}</h3>
+  <!-- START FORM  -->
+  <form (submit)="onSubmit()" class="postForm">
+    <label>Your Name:
+      <input type="text" name="newReview.customer" required [(ngModel)]="newReview.customer"  minlength="3" #customer="ngModel" />
+    </label>
+    <br>
+      <div *ngIf="customer.errors && (customer.dirty || customer.touched)" class="alert alert-danger">
+        <div [hidden]="!customer.errors.required">
+          Your Name is required.
+        </div>
+        <div [hidden]="!customer.errors.minlength">
+        Your Name must be at least 3 characters.
+        </div>
+      </div>
+    <select name="stars" [(ngModel)]="newReview.stars">
+      <option value="1">1 Star</option>
+      <option value="2">2 Star</option>
+      <option value="3">3 Star</option>
+      <option value="4">4 Star</option>
+      <option value="5">5 Star</option>
+    </select><br>
+    <label>Your Review:
+      <input type="text" name="newReview.review" [(ngModel)]="newReview.review" required minlength="3" #review="ngModel" />
+    </label>
+    <br>
+      <div *ngIf="review.errors && (review.dirty || review.touched)" class="alert alert-danger">
+        <div [hidden]="!review.errors.required">
+          Review is required.
+        </div>
+        <div [hidden]="!review.errors.minlength">
+          Review must be at least 3 characters.
+        </div>
+      </div>
+    <br>
+    <br>
+    <input type="submit" value=Submit class="button1" />
+    <input type="button" class="button1" [routerLink]="['/home']" value="Cancel">
+  </form>
+  <br>
+</div>

@@ -1,0 +1,45 @@
+<div class="wrapperNew">
+  <br>
+  <br>
+  <a [routerLink]="['/home']">Home</a>
+  <br>
+  <br>
+  <p class="error">{{err}}</p>
+  <br>
+  <form (submit)="updateSubmit()" class="postForm" name="myForm">
+
+    <label>Name:
+      <input type="text" name="editFood.name" required [(ngModel)]="editFood.name" minlength="3" #name="ngModel"/>
+    </label>
+    <br>
+    <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+      <div [hidden]="!name.errors.required">
+         Food Name is required.
+      </div>
+      <div [hidden]="!name.errors.minlength">
+         Food Name must be at least 3 characters.
+      </div>
+    </div>
+
+    <br>
+    <label>Cuisine Type:
+      <input type="text" name="editFood.type" [(ngModel)]="editFood.type" required minlength="3" #type="ngModel" />
+    </label>
+    <br>
+    <div *ngIf="type.errors && (type.dirty || type.touched)" class="alert alert-danger">
+      <div [hidden]="!type.errors.required">
+        Cuisine Type is required.
+      </div>
+      <div [hidden]="!type.errors.minlength">
+        Cuisine Type must be at least 3 characters.
+      </div>
+    </div>
+    <br>
+    <br>
+    <input type="submit" value="Edit" class="button3" /> |
+    <input type="button" class="button3" [routerLink]="['/home']" value="Cancel">
+  </form>
+  <br>
+  <br>
+  <br>
+</div>

@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <br>
+  <a [routerLink]="['/new']">New Food</a>
+  <br>
+  <br>
+  <table align="center">
+    <tr>
+      <th>Food Name</th>
+      <th>Cuisine Type</th>
+      <th>Actions available</th>
+    </tr>
+    <tr *ngFor=" let foods of allFoods">
+      <td>{{ foods.name}}</td>
+      <td>{{ foods.type}}</td>
+      <td>
+        |
+        <button class="button" [routerLink]="['/reviews/',foods._id]">Read Reviews</button> |
+        <button class="button" [routerLink]="['/edit/',foods._id]">Update</button> |
+        <button class="button" (click)="onClickDelete(foods._id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
